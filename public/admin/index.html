@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>自写PC端后台管理系统首页</title>
+    <!-- 1. 引入bootstrap的css -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- 2. 引入字体图标库 -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <!-- 3. 引入后台首页页面的样式 -->
+    <link rel="stylesheet/less" href="less/index.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <main id="main">
+        <div class="left">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/3.png" alt="">
+                </a>
+                <p>管理员</p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li class="active">
+                        <a href="index.html">
+                            用户管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            分类管理
+                            
+                        </a>
+                        <!-- 注意a不能包含a ul放到a的旁边 -->
+                        <ul>
+                            <li class="active">
+                                <a href="firstCategory.html">一级分类</a>
+                            </li>
+                            <li>
+                                <a href="secondCategory.html">二级分类</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            商品管理
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="title clearfix">
+                <a href="#" class="pull-left menu">
+                    <i class="fa fa-navicon"></i>
+                </a>
+                <a href="#" class="pull-right exit">
+                    <i class="fa fa-sign-out"></i>
+                    <span>退出</span>
+                </a>
+            </div>
+            <div class="content">
+                <!-- 表格的盒子 -->
+                <div class="table-box">
+                    <!-- 既有边框又有悬停的表格 -->
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    用户名
+                                </th>
+                                <th>
+                                    电话
+                                </th>
+                                <th>
+                                    状态
+                                </th>
+                                <th>
+                                    操作
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    itcast
+                                </td>
+                                <td>
+                                    15102324243
+                                </td>
+                                <td>
+                                    已启用
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-danger">禁用</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    itcast
+                                </td>
+                                <td>
+                                    15102324243
+                                </td>
+                                <td>
+                                    已禁用
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-success">启用</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 分类的容器 -->
+                <div class="page">
+                    <ul id="page">
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 创建用户表格的模板 -->
+    <script id="userTpl" type="text/html">
+        {{each rows value}}
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>
+                {{value.username}}
+            </td>
+            <td>
+                {{value.mobile}}
+            </td>
+            {{if value.isDelete == 0}}
+            <td>
+                已禁用
+            </td>
+            <td>
+                <button type="button" class="btn btn-success btn-option" data-id="{{value.id}}" data-is-delete="{{value.isDelete}}">启用</button>
+            </td>
+            {{else}}
+            <td>
+                已启用
+            </td>
+            <td>
+                <button type="button" class="btn btn-danger btn-option" data-id="{{value.id}}" data-is-delete="{{value.isDelete}}">禁用</button>
+            </td>
+            {{/if}}
+        </tr>
+        {{/each}}
+    </script>
+    <!-- 1. 引入jquery bootstrap依赖jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 2. 引入bootstrap的js文件 -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 3. 引入模板引擎的JS文件 注意 引入template-web.js-->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 引入jquery+bootstrap的分页插件 -->
+    <script src="lib/bootstrap/js/bootstrap-paginator.js"></script>
+    <!-- 4. 引入首页的JS文件 -->
+    <script src="js/index.js"></script>
+</body>
+
+</html>

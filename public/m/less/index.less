@@ -1,0 +1,92 @@
+/* 引入初始化代码*/
+@import './base.less';
+
+
+/*主体部分中的区域*/
+#main{
+    position: relative;
+    height: 100%;
+  #nav{
+     padding: 10px; 
+     .mui-col-xs-4 {
+        >a{
+            display: block;
+         >img{
+             width: 100%;
+         }   
+        } 
+     }
+  }
+  #banner{
+   padding: 0px 10px;
+   .left{
+       a{
+           display: block;
+        img{
+            width: 50%;
+            height: 120px;
+            float: left;
+        }   
+       }
+   }
+   .right{
+       a{
+           display: block;
+        img{
+            width: 100%;
+            height: 240px;
+        }   
+       }
+   }   
+  }  
+ #brand{
+   padding: 10px;
+   a{
+       display: block;
+     img{
+         width: 100%;
+     }   
+   }  
+ } 
+ #sport,#women,#man{
+     padding: 10px;
+   .title{
+       a{
+      display: block;
+      img{
+          width: 100%;
+      }
+       }
+   } 
+ .productlist-content{
+  .mui-col-xs-6{
+     margin-top: 8px;
+     padding: 0px 5px;
+    .product{
+        text-align: center;
+         border: 1px solid @border-color;
+         padding-bottom: 10px;
+        
+           a{
+               display: block;
+               img{
+                   width: 100%;
+               }
+             }
+             p{
+              font-size: 12px;
+              span{
+               color:red;
+                }
+             }
+             button{
+                 background-color: @main-color;
+                 border-color: @main-color;
+             }
+          }  
+       }
+    }   
+   }   
+ }
+
+ 

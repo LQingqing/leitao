@@ -1,0 +1,161 @@
+/* ----------- 初始化代码开始 ----------- */
+body,a,tr,td,ul,li,ol,dl,dt,h1,h2,h3,h4,h5,h6,span,div,img,input,p,b,u,i,del{
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration-line: none;
+    color: black; 
+}
+
+/* 去掉li元素的左侧默认黑色小圆点 */
+li{
+    list-style: none;
+}
+
+
+input{
+    /* 清除文本框默认边框 */
+    border: 0 none;
+    /* 清除文本框高亮提示 */
+    outline: none;
+}
+
+img{
+    /* 使行内块元素中线对齐 */
+    vertical-align: middle;
+    /* 在低版本的浏览器中 img自带边框 */
+    border: 0 none;
+}
+
+
+/* 以上初始化代码完成 */
+
+/* 公共样式的变量*/
+@main-color:#2f4050;
+
+html,
+body {
+    height: 100%;
+}
+/* 后台主页的公共样式 */
+
+#main {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    .left {
+        height: 100%;
+        width: 180px;
+        background-color: @main-color;
+        .logo {
+            padding: 30px 0;
+            background-color: #243443;
+            a {
+                display: block;
+                border: 5px solid #ccc;
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                margin: 0px auto;
+                >img {
+                    width: 130px;
+                    height: 130px;
+                    border-radius: 50%;
+                }
+            }
+            p {
+                color: #ccc;
+                font-size: 20px;
+                text-align: center;
+                margin-top: 10px;
+            }
+        }
+        .list {
+            margin-top: 40px;
+            > ul {
+                padding: 0;
+                >li {
+                    line-height: 40px;
+                    list-style: none;
+                    margin-top: 10px;
+                    &.active {
+                        >a {
+                            background-color: #243443;
+                        }
+                    }
+                    a {
+                        color: #ccc;
+                        display: block;
+                        padding-left: 20px;
+                        text-decoration: none;
+                        &:hover {
+                            background-color: #243443;
+                        }
+                    }
+                    >ul {
+                        >li {
+                            margin-top: 10px;
+                            list-style: none;
+                            &.active {
+                                >a {
+                                    background-color: #243443;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .right {
+        flex: 1;
+        height: 100%;
+        /* 改变right里面的主轴的布局方向  需要改成垂直的方向 */
+        flex-direction: column;
+        display: flex;
+        .title {
+            padding: 10px;
+            /* title高度固定了 */
+            height: 60px;
+            .menu {
+                background-color: #5cb85c;
+                font-size: 20px;
+                padding: 5px 10px;
+                color: #fff;
+            }
+            .exit {
+                font-size: 20px;
+                margin-right: 10px;
+                color: #666;
+                text-decoration: none;
+            }
+        }
+        .content {
+            background-color: #eee;
+            /* 内容flex为1表示高度就自适应 */
+            flex: 1;
+            padding: 30px 10px;
+            
+            .table-box {
+                width: 100%;
+                background-color: #fff;
+                .table {
+                    tr {
+                        th {
+                            line-height: 40px;
+                        }
+                        td {
+                            line-height: 50px;
+                        }
+                        >th,
+                        td {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

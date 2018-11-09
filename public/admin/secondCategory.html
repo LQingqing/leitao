@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理系统二级分类</title>
+    <!-- 1. 引入bootstrap的css -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <!-- 2. 引入字体图标库 -->
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <!-- 3. 引入后台二级分类页面的样式 -->
+    <link rel="stylesheet/less" href="less/secondCategory.less">
+    <!-- 4. 引入less.js编译器文件 -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <main id="main">
+        <div class="left">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/3.png" alt="">
+                </a>
+                <p>管理员</p>
+            </div>
+            <div class="list">
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            用户管理
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            分类管理
+                            
+                        </a>
+                        <!-- 注意a不能包含a ul放到a的旁边 -->
+                        <ul>
+                            <li>
+                                <a href="firstCategory.html">一级分类</a>
+                            </li>
+                            <li class="active">
+                                <a href="secondCategory.html">二级分类</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">
+                            商品管理
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right">
+            <div class="title clearfix">
+                <a href="#" class="pull-left menu">
+                    <i class="fa fa-navicon"></i>
+                </a>
+                <a href="#" class="pull-right exit">
+                    <i class="fa fa-sign-out"></i>
+                    <span>退出</span>
+                </a>
+            </div>
+            <div class="content">
+                <!-- 表格的盒子 -->
+                <div class="table-box">
+                    <!-- 添加品牌的按钮 -->
+                    <button type="button" class="btn btn-primary add-brand" data-toggle="modal" data-target="#myModal">添加品牌</button>
+                    <!-- 添加分类的模态框 -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">添加品牌</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <!-- 使用form-control类名让输入框变好看 -->
+                                    <div class="row">
+                                        <label for="#" class="col-xs-2">请选择分类：</label>
+                                        <div class="col-xs-10">
+                                            <select name="" id="" class="form-control select-category">
+                                                <option value="户外馆">户外馆</option>
+                                                <option value="运动馆">运动馆</option>
+                                                <option value="川菜馆">川菜馆</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- 使用form-control类名让输入框变好看 -->
+                                    <div class="row">
+                                        <label for="#" class="col-xs-2">品牌名称：</label>
+                                        <div class="col-xs-10">
+                                            <input type="text" class="form-control brand-name" placeholder="请输入品牌的名称">
+                                        </div>
+                                    </div>
+                                    <!-- 使用form-control类名让输入框变好看 -->
+                                    <div class="row">
+                                        <label for="#" class="col-xs-2">请选择图片：</label>
+                                        <div class="col-xs-10">
+                                            <input type="file" class="form-control select-file">
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="img">
+                                            <img src="images/3.png" alt="">
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <!-- data-dismiss="modal" 添加这个属性点击就可以关闭模态框 -->
+                                    <button type="button" class="btn btn-primary btn-save" data-dismiss="modal">保存</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 既有边框又有悬停的表格 -->
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>
+                                    #
+                                </th>
+                                <th>
+                                    品牌编号
+                                </th>
+                                <th>
+                                    品牌名称
+                                </th>
+                                <th>
+                                    品牌logo
+                                </th>
+                                <th>
+                                    所属分类
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <input type="checkbox">
+                                </td>
+                                <td>
+                                    1
+                                </td>
+                                <td>
+                                    酱油
+                                </td>
+                                <td>
+                                    <img src="images/4.png" >
+                                </td>
+                                <td>
+                                    李志强说东莞
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- 分类的容器 -->
+                <div class="page">
+                    <ul id="page">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 一级分类下拉框的模板 -->
+    <script id="firstCategoryTpl" type="text/html">
+        {{each rows value}}
+            <option value="{{value.id}}">{{value.categoryName}}</option>            
+        {{/each}}
+    </script>
+    <script id="secondCategoryTpl" type="text/html">
+        {{each rows value}}
+            <tr>
+                <td>
+                    <input type="checkbox">
+                </td>
+                <td>
+                    {{value.id}}
+                </td>
+                <td>
+                    {{value.brandName}}
+                </td>
+                <td>
+                    <img src="{{value.brandLogo}}" alt="暂未图片">
+                </td>
+                <td>
+                    {{value.categoryName}}
+                </td>
+            </tr>
+        {{/each}}
+    </script>
+    <!-- 1. 引入jquery bootstrap依赖jquery -->
+    <script src="lib/jquery/jquery.js"></script>
+    <!-- 2. 引入bootstrap的js文件 -->
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <!-- 3. 引入模板引擎的JS文件 注意 引入template-web.js-->
+    <script src="lib/artTemplate/template-web.js"></script>
+    <!-- 引入jquery+bootstrap的分页插件 -->
+    <script src="lib/bootstrap/js/bootstrap-paginator.js"></script>
+    <!-- 4. 引入二级分类的JS文件 -->
+    <script src="js/secondCategory.js"></script>
+</body>
+
+</html>

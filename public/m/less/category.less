@@ -1,0 +1,68 @@
+/* 引入初始化代码*/
+@import './base.less';
+
+
+html,body{
+    height: 100%;
+}
+
+/*body 背景颜色*/
+body{
+    background-color: #ccc;
+}
+/* 主题区域样式*/
+
+#main{
+  height: 100%;
+  position: relative;  
+  display: flex;  
+ .category-left{
+     >ul{
+        >li{
+            border-bottom: 1px solid #ccc;
+            >a{
+                display: block;
+                width: 80px;
+               height: 45px;
+               text-align: center;
+               line-height: 45px;
+               font-size: 14px;
+               background-color: white;
+               border-bottom: 1px solid #ccc;
+              border-right: 1px solid #ccc;
+            }
+            &.active{
+                >a{
+                 background-color: #ccc;
+                 color: @main-color;
+                }
+            }
+        } 
+     }
+ } 
+ .category-right{
+     position: relative;
+    flex: 1;
+    .mui-scroll{
+        min-height: 101%;
+        .mui-row{
+            padding: 10px;
+          .mui-col-xs-4{
+            width: 33.33%;  
+            >a{
+            display: block;    
+            background-color: white; 
+             >img{
+               width: 92px;
+               height: 47px;  
+             }  
+            >p{
+                font-size: 14px;
+                text-align: center;
+            }  
+            }  
+          }
+        }
+    }
+ }  
+}

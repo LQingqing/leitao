@@ -1,0 +1,188 @@
+/* 公共变量 */
+@main-color: #006699;
+@border-color: #ccc;
+@a-color: #666;
+html {
+    font-size: 100px;
+}
+
+body {
+    //也可以缩小100倍写0.16rem
+    font-size: 0.16rem;
+}
+
+
+/* 样式重置 */
+* {
+    margin: 0px;
+    padding: 0px;
+    /*在移动端设置盒模型border-box 为了防止元素加边框或者padding出现水平滚动条*/
+    box-sizing: border-box;
+    /* 去除移动端按住元素的时候会出现高亮背景色 */
+    -webkit-tap-highlight-color: transparent;
+    /* 去掉所有移动端内边框 */
+    outline: none;
+}
+
+a {
+    color: @a-color;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+input {
+    border: 0;
+}
+
+img {
+    /* 解决图片底部3px的间隙 为了让图片的对齐方式和文本一致*/
+    vertical-align: middle;
+}
+
+i {
+    font-style: normal;
+}
+
+html,body{
+    height: 100%;
+}
+
+body{
+    padding: 45px 0px;
+    background-color: #fff;
+}
+/* 头部的公共样式 */
+#header {
+    background-color: @main-color;
+    position: fixed;
+    top:0px;
+    width: 100%;
+    padding: 0px 45px;
+    z-index: 999;
+    height: 45px;
+    >h4 {
+        text-align: center;
+        margin: 0;
+        line-height: 45px;
+        color: #fff;
+        font-weight: normal;
+    }
+    .fa{
+        position: absolute;
+        top: 0px;
+        width: 45px;
+        height: 45px;
+        display: block;
+        text-align: center;
+        line-height: 45px;
+        color:#fff;
+    &.fa-home{
+      right: 0px;  
+    }    
+    }
+    form{
+        line-height: 45px;
+          >input{
+              background-color: white;
+              margin-bottom: 0px;
+              font-size: 14px;
+              text-align: left;
+           
+          }  
+        } 
+    .fa-arrow-left{
+     left: 0px;
+    }
+    .fa-search,.fa-refresh{
+     right: 0px;   
+    }
+}
+
+/*搜索按钮的公共样式*/ 
+#main{
+ .search-from{
+        display: flex;
+        padding: 10px;
+     .search-input{
+         flex: 1;
+         height: 30px;
+         border: 1px solid @main-color;
+         text-align: left;
+         border-radius: 6px 0px 0px 6px;
+         background-color: #fff;
+         margin: 0px;
+     } 
+     .btn-search{
+       width: 60px;
+       height: 30px;
+       background-color: @main-color;  
+       border-radius: 0px 6px 6px 0px;
+     }  
+ }
+
+/*商品列表内容公共样式 */  
+.productlist-content{
+    .mui-col-xs-6{
+       margin-top: 8px;
+       padding: 0px 5px;
+      .product{
+          text-align: center;
+           border: 1px solid @border-color;
+           padding-bottom: 10px;
+           .product-name{
+            text-overflow: -o-ellipsis-lastline;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+      }  
+             a{
+                 display: block;
+                 img{
+                     width: 100%;
+                 }
+               }
+               p{
+                font-size: 12px;
+                span{
+                 color:red;
+                  }
+               }
+               button{
+                   background-color: @main-color;
+                   border-color: @main-color;
+               }
+            }  
+    }
+ }   
+}
+
+/*底部部分中的公共样式*/
+#footer{
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 999;
+    height: 45px;
+    background-color:@main-color;
+  .mui-col-xs-3{ 
+   a{
+     text-align: center;  
+     display: block;  
+     color: white;
+     font-size: 12px;
+     padding: 5px 0px;
+   &.active{
+     color: orange;  
+   }  
+   i{
+       display: block;
+   }  
+   }
+  }  
+  }
